@@ -2,177 +2,198 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bruno & Rafaelly ❤️</title>
+<title>Bruno & Rafaelly ❤️</title>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body{
-      font-family: Arial, sans-serif;
-      background:black;
-      color:white;
-      overflow:hidden;
-    }
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#1a001f,#000);
+  color:white;
+  overflow-x:hidden;
+}
 
-    /* INTRO */
+/* INTRO */
 
-    #intro{
-      position:fixed;
-      inset:0;
-      background:linear-gradient(135deg,#1a001f,#000);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      z-index:9999;
-      padding:20px;
-    }
+#intro{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#120014,#000);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:9999;
+  padding:20px;
+}
 
-    #intro h1{
-      font-size:3rem;
-      margin-bottom:15px;
-    }
+#intro h1{
+  font-size:2.8rem;
+  margin-bottom:15px;
+}
 
-    #enterBtn{
-      margin-top:20px;
-      padding:15px 40px;
-      border:none;
-      border-radius:50px;
-      cursor:pointer;
-      font-size:1.1rem;
-      font-weight:bold;
-    }
+#enterBtn{
+  margin-top:20px;
+  padding:15px 40px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  font-size:1.1rem;
+  font-weight:bold;
+}
 
-    /* FUNDO */
+/* PLAYER YOUTUBE FIXO */
 
-    .video-bg{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      z-index:-2;
-    }
+#player{
+  position:fixed;
+  top:15px;
+  right:15px;
+  width:260px;
+  height:150px;
+  z-index:9998;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+  display:none;
+}
 
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.5);
-      z-index:-1;
-    }
+/* CONTEÚDO */
 
-    /* CONTEÚDO */
+.container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .container{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:20px;
-    }
+.card{
+  max-width:750px;
+  background:rgba(255,255,255,0.08);
+  padding:35px;
+  border-radius:20px;
+  text-align:center;
+  backdrop-filter:blur(10px);
+}
 
-    .card{
-      background:rgba(255,255,255,0.08);
-      padding:30px;
-      border-radius:20px;
-      max-width:700px;
-    }
+h1{
+  font-size:2.5rem;
+}
 
-    #contador{
-      font-size:1.4rem;
-      margin-top:20px;
-    }
+.sub{
+  margin-top:10px;
+  opacity:0.8;
+}
 
-  </style>
+.mensagem{
+  margin-top:25px;
+  line-height:1.8;
+}
+
+.mensagem p{
+  margin-bottom:15px;
+}
+
+.destaque{
+  color:#ffb3f0;
+  font-weight:bold;
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- INTRO -->
-  <div id="intro">
+<!-- INTRO -->
+<div id="intro">
 
-    <h1>Bruno & Rafaelly ❤️</h1>
+<h1>Bruno & Rafaelly ❤️</h1>
 
-    <p>Clique para entrar no nosso mundo</p>
+<p>Toque para entrar no nosso mundo</p>
 
-    <button id="enterBtn">Entrar ❤️</button>
+<button id="enterBtn">Entrar ❤️</button>
 
-  </div>
+</div>
 
-  <!-- YOUTUBE -->
-  <iframe
-    id="yt"
-    class="video-bg"
-    width="100%"
-    height="100%"
-    src="https://www.youtube.com/embed/KFp3PHmchks?enablejsapi=1&autoplay=0&mute=1&controls=0&loop=1&playlist=KFp3PHmchks"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
+<!-- YOUTUBE MINI PLAYER -->
+<div id="player">
 
-  <div class="overlay"></div>
+<iframe
+id="yt"
+width="100%"
+height="100%"
+src="https://www.youtube.com/embed/KFp3PHmchks?enablejsapi=1&autoplay=0&mute=1&controls=1"
+frameborder="0"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
 
-  <!-- CONTEÚDO -->
-  <div class="container">
+</div>
 
-    <div class="card">
+<!-- CONTEÚDO -->
+<div class="container">
 
-      <h1>Bruno & Rafaelly ❤️</h1>
+<div class="card">
 
-      <p>Desde 14/05/2026 ✨</p>
+<h1>Bruno & Rafaelly ❤️</h1>
 
-      <div id="contador"></div>
+<div class="sub">
+Desde 14/05/2026 ✨
+</div>
 
-    </div>
+<div class="mensagem">
 
-  </div>
+<p>
+Em um mundo tão grande, a gente se encontrou sem querer.
+</p>
 
-  <script>
+<p>
+E desde então tudo ficou mais leve, mais bonito e mais verdadeiro.
+</p>
 
-    // CONTADOR
-    function atualizar(){
+<p class="destaque">
+Rafaelly, você é o meu novo mundo ❤️
+</p>
 
-      const inicio = new Date('2026-05-14T00:00:00');
-      const agora = new Date();
+<p>
+Cada dia contigo vira história que eu quero guardar pra sempre.
+</p>
 
-      const diff = agora - inicio;
+</div>
 
-      const dias = Math.floor(diff / (1000*60*60*24));
+</div>
 
-      document.getElementById("contador").innerHTML =
-      dias + " dias juntos ❤️";
-    }
+</div>
 
-    setInterval(atualizar,1000);
-    atualizar();
+<script>
 
-    // BOTÃO ENTRAR
-    document.getElementById("enterBtn").addEventListener("click", () => {
+document.getElementById("enterBtn").addEventListener("click", () => {
 
-      // mostra site
-      document.getElementById("intro").style.display = "none";
+  // remove intro
+  document.getElementById("intro").style.display = "none";
 
-      // ativa som do YouTube (DESMUTA via URL não funciona direto)
-      const iframe = document.getElementById("yt");
+  // mostra player
+  document.getElementById("player").style.display = "block";
 
-      iframe.src =
-      "https://www.youtube.com/embed/KFp3PHmchks?autoplay=1&mute=0&enablejsapi=1&controls=0&loop=1&playlist=KFp3PHmchks";
+  // ativa som + autoplay
+  const iframe = document.getElementById("yt");
 
-    });
+  iframe.src =
+  "https://www.youtube.com/embed/KFp3PHmchks?autoplay=1&mute=0&controls=1&enablejsapi=1";
 
-  </script>
+});
+
+</script>
 
 </body>
-
 </html>
