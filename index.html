@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +20,12 @@
     body{
       font-family:'Poppins', sans-serif;
       overflow-x:hidden;
-      background:#000;
       color:white;
+      background:black;
     }
 
     /* =========================
-       VIDEO DE FUNDO
+       VÍDEO DE FUNDO
     ========================== */
 
     .video-bg{
@@ -40,93 +41,133 @@
     .overlay{
       position:fixed;
       inset:0;
-      background:linear-gradient(
+      background:
+      linear-gradient(
         to bottom,
         rgba(0,0,0,0.45),
-        rgba(60,0,80,0.55)
+        rgba(88,0,110,0.55)
       );
       z-index:-1;
     }
 
     /* =========================
-       CONTEÚDO
+       CONTAINER
     ========================== */
 
     .container{
       min-height:100vh;
       display:flex;
-      flex-direction:column;
       justify-content:center;
       align-items:center;
-      padding:30px 20px;
-      text-align:center;
+      padding:25px;
     }
 
     .card{
+
       width:100%;
       max-width:850px;
 
       background:rgba(255,255,255,0.10);
 
-      border:1px solid rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.12);
 
       backdrop-filter:blur(12px);
 
       border-radius:30px;
 
-      padding:40px 25px;
+      padding:45px 30px;
 
-      box-shadow:0 15px 50px rgba(0,0,0,0.4);
+      text-align:center;
 
-      animation:fade 1.5s ease;
+      box-shadow:
+      0 15px 40px rgba(0,0,0,0.5);
+
+      animation:fade 1.4s ease;
     }
 
     @keyframes fade{
+
       from{
         opacity:0;
         transform:translateY(20px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
       }
+
     }
 
     h1{
       font-size:3rem;
       margin-bottom:10px;
       font-weight:700;
-      text-shadow:0 0 20px rgba(255,255,255,0.3);
+
+      text-shadow:
+      0 0 20px rgba(255,255,255,0.25);
     }
 
-    .sub{
+    .subtitulo{
       font-size:1rem;
       opacity:0.9;
-      margin-bottom:30px;
+      margin-bottom:25px;
     }
 
-    .contador-box{
-      margin:25px 0;
-      padding:25px;
+    .heart{
+      font-size:2rem;
+      margin-bottom:20px;
+      animation:pulse 1.8s infinite;
+    }
 
-      border-radius:22px;
+    @keyframes pulse{
+
+      0%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.18);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+
+    }
+
+    /* =========================
+       CONTADOR
+    ========================== */
+
+    .contador-box{
 
       background:rgba(255,255,255,0.08);
 
-      border:1px solid rgba(255,255,255,0.1);
+      border-radius:22px;
+
+      padding:28px;
+
+      margin-top:25px;
+
+      border:1px solid rgba(255,255,255,0.08);
     }
 
     #contador{
       font-size:1.5rem;
-      line-height:1.8;
+      line-height:1.9;
       font-weight:600;
     }
 
+    /* =========================
+       TEXTO
+    ========================== */
+
     .mensagem{
-      margin-top:30px;
+      margin-top:35px;
       line-height:1.9;
       font-size:1.08rem;
-      color:#f8f8f8;
+      color:#f5f5f5;
     }
 
     .mensagem p{
@@ -134,26 +175,9 @@
     }
 
     .destaque{
-      color:#ffd4f5;
+      color:#ffd2f5;
+      font-size:1.15rem;
       font-weight:600;
-    }
-
-    .heart{
-      font-size:2rem;
-      animation:pulse 1.8s infinite;
-      margin:15px 0;
-    }
-
-    @keyframes pulse{
-      0%{
-        transform:scale(1);
-      }
-      50%{
-        transform:scale(1.15);
-      }
-      100%{
-        transform:scale(1);
-      }
     }
 
     footer{
@@ -161,6 +185,37 @@
       font-size:0.9rem;
       opacity:0.8;
     }
+
+    /* =========================
+       BOTÃO DE ÁUDIO
+    ========================== */
+
+    .audio-msg{
+      margin-top:18px;
+      font-size:0.95rem;
+      opacity:0.9;
+      animation:piscar 1.5s infinite;
+    }
+
+    @keyframes piscar{
+
+      0%{
+        opacity:0.4;
+      }
+
+      50%{
+        opacity:1;
+      }
+
+      100%{
+        opacity:0.4;
+      }
+
+    }
+
+    /* =========================
+       RESPONSIVO
+    ========================== */
 
     @media(max-width:700px){
 
@@ -176,18 +231,25 @@
         font-size:1rem;
       }
 
+      .card{
+        padding:35px 22px;
+      }
+
     }
 
   </style>
 </head>
+
 <body>
 
   <!-- =========================
-       VIDEO DE FUNDO
+       VÍDEO DE FUNDO
   ========================== -->
 
-  <video class="video-bg" autoplay muted loop playsinline id="bgVideo">
+  <video class="video-bg" autoplay loop playsinline id="bgVideo">
+
     <source src="helipa.mp4" type="video/mp4">
+
   </video>
 
   <div class="overlay"></div>
@@ -202,11 +264,15 @@
 
       <h1>Bruno & Rafaelly ❤️</h1>
 
-      <div class="sub">
+      <div class="subtitulo">
         Desde 14/05/2026 vivendo nosso novo mundo ✨
       </div>
 
-      <div class="heart">💖</div>
+      <div class="heart">
+        💖
+      </div>
+
+      <!-- CONTADOR -->
 
       <div class="contador-box">
 
@@ -214,26 +280,32 @@
           Carregando nosso tempo juntos...
         </div>
 
+        <div class="audio-msg">
+          🔊 Toque na tela para ouvir a música
+        </div>
+
       </div>
+
+      <!-- TEXTO -->
 
       <div class="mensagem">
 
         <p>
-          Em meio a bilhões de pessoas no mundo,
-          o destino ainda encontrou um jeito de cruzar nossos caminhos.
+          Em um mundo tão grande,
+          ainda assim nossos caminhos conseguiram se encontrar.
         </p>
 
         <p>
-          E desde aquele momento,
-          tudo começou a ficar mais bonito,
-          mais leve,
-          mais verdadeiro.
+          E desde então,
+          meus dias ficaram mais leves,
+          meus sorrisos mais sinceros
+          e meu coração encontrou paz em você.
         </p>
 
         <p>
-          Cada segundo ao teu lado vira memória.
-          Cada conversa vira abrigo.
-          Cada sorriso teu vira meu lugar favorito. ❤️
+          Cada segundo contigo vira memória.
+          Cada conversa vira conforto.
+          Cada olhar teu vira meu lugar favorito. ❤️
         </p>
 
         <p class="destaque">
@@ -242,8 +314,13 @@
 
         <p>
           Que esse contador nunca pare,
-          porque eu quero continuar escrevendo essa história com você,
-          todos os dias.
+          porque eu quero viver milhares de momentos ao teu lado.
+        </p>
+
+        <p>
+          E se algum dia alguém me perguntar
+          o que é amor,
+          eu provavelmente vou mostrar você. ✨
         </p>
 
       </div>
@@ -256,17 +333,33 @@
 
   </div>
 
+  <!-- =========================
+       SCRIPT
+  ========================== -->
+
   <script>
 
     // =========================
-    // INICIAR VÍDEO NO SEGUNDO 1
+    // VÍDEO
     // =========================
 
     const video = document.getElementById('bgVideo');
 
+    // começa no segundo 1
     video.addEventListener('loadedmetadata', () => {
+
       video.currentTime = 1;
+
     });
+
+    // libera áudio ao tocar na tela
+    document.body.addEventListener('click', () => {
+
+      video.muted = false;
+
+      video.play();
+
+    }, { once:true });
 
     // =========================
     // CONTADOR
@@ -275,23 +368,36 @@
     function atualizarContador(){
 
       const inicio = new Date('2026-05-14T00:00:00');
+
       const agora = new Date();
 
       const diferenca = agora - inicio;
 
-      const segundos = Math.floor(diferenca / 1000) % 60;
-      const minutos = Math.floor(diferenca / (1000 * 60)) % 60;
-      const horas = Math.floor(diferenca / (1000 * 60 * 60)) % 24;
-      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const segundos =
+      Math.floor(diferenca / 1000) % 60;
+
+      const minutos =
+      Math.floor(diferenca / (1000 * 60)) % 60;
+
+      const horas =
+      Math.floor(diferenca / (1000 * 60 * 60)) % 24;
+
+      const dias =
+      Math.floor(diferenca / (1000 * 60 * 60 * 24));
 
       document.getElementById('contador').innerHTML = `
+
         <strong>${dias}</strong> dias,
         <strong>${horas}</strong> horas,
         <strong>${minutos}</strong> minutos e
         <strong>${segundos}</strong> segundos
-        <br>
+
+        <br><br>
+
         vivendo essa história linda ✨
+
       `;
+
     }
 
     atualizarContador();
