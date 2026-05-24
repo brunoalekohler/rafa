@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bruno & Rafaelly ❤️</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #5a2a82, #d16ba5);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+    .contador {
+      background: rgba(255,255,255,0.15);
+      padding: 20px 30px;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      backdrop-filter: blur(8px);
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .galeria img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .mensagem {
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 18px;
+    }
+    .player {
+      margin-top: 25px;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>  <h1>Bruno & Rafaelly ❤️</h1>
+  <h2>Desde 14/05/2026 até hoje</h2>  <div class="contador" id="contador">
+    Calculando nosso tempo...
+    <p>
+      Este site é um pedacinho do que sinto. Cada segundo contado,
+      representa o quanto esse sentimento cresce todos os dias. 💖
+    </p>
+    <p>
+      Rafaelly, que isso seja apenas o começo do nosso novo mundo.
+    </p>
+  </div>  <div class="player">
+    <!-- Música de fundo: Charlie Brown Jr - Meu Novo Mundo -->
+    <!-- Autoplay pode exigir interação do usuário dependendo do navegador -->
+    <iframe width="300" height="170"
+      src="https://youtu.be/V4xxonnK7Xk?si=h-l_XNLfdom7AaAm"
+      title="Meu Novo Mundo - Charlie Brown Jr"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+    <p style="font-size:0.8rem;">Toque no vídeo se a música não iniciar automaticamente 🎶</p>
+  </div>  <footer>
+    Feito com ❤️ por Bruno
+  </footer>  <script>
+    function atualizarContador() {
+      // Data inicial conforme solicitado
+      const inicio = new Date('2026-05-14T00:00:00');
+      const agora = new Date();
+
+      let diferenca = agora - inicio;
+      let sinal = diferenca >= 0 ? '' : 'Faltam ';
+      diferenca = Math.abs(diferenca);
+
+      const segundos = Math.floor(diferenca / 1000) % 60;
+      const minutos = Math.floor(diferenca / (1000 * 60)) % 60;
+      const horas = Math.floor(diferenca / (1000 * 60 * 60)) % 24;
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+
+      document.getElementById('contador').innerHTML =
+        `${sinal}<strong>${dias}</strong> dias, <strong>${horas}</strong> horas, <strong>${minutos}</strong> minutos e <strong>${segundos}</strong> segundos`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script></body>
+</html>
