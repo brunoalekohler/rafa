@@ -19,13 +19,13 @@
 
     body{
       font-family:'Poppins', sans-serif;
-      overflow-x:hidden;
+      overflow:hidden;
       background:black;
       color:white;
     }
 
     /* =========================
-       TELA DE ENTRADA
+       INTRO
     ========================== */
 
     #intro{
@@ -36,7 +36,7 @@
       background:
       linear-gradient(
         135deg,
-        #2d0036,
+        #1a001f,
         #000
       );
 
@@ -45,33 +45,38 @@
       justify-content:center;
       align-items:center;
 
+      text-align:center;
+
       z-index:9999;
 
-      text-align:center;
-      padding:20px;
+      padding:25px;
 
     }
 
     #intro h1{
 
       font-size:3rem;
+
       margin-bottom:20px;
 
       text-shadow:
-      0 0 20px rgba(255,255,255,0.3);
+      0 0 25px rgba(255,255,255,0.35);
 
-      animation:fade 1.2s ease;
+      animation:fade 1.5s ease;
 
     }
 
     #intro p{
 
       max-width:500px;
-      line-height:1.8;
-      opacity:0.9;
+
+      line-height:1.9;
+
       margin-bottom:35px;
 
-      animation:fade 1.8s ease;
+      opacity:0.92;
+
+      animation:fade 2s ease;
 
     }
 
@@ -83,38 +88,39 @@
 
       border-radius:50px;
 
-      font-size:1.1rem;
-
-      cursor:pointer;
-
       background:white;
 
-      color:#5e006d;
+      color:#5f006b;
+
+      font-size:1.1rem;
 
       font-weight:700;
+
+      cursor:pointer;
 
       transition:0.3s;
 
       box-shadow:
       0 10px 30px rgba(255,255,255,0.2);
 
-      animation:fade 2.2s ease;
+      animation:fade 2.5s ease;
 
     }
 
     #enterBtn:hover{
 
-      transform:scale(1.06);
+      transform:scale(1.07);
 
     }
 
     /* =========================
-       VÍDEO DE FUNDO
+       VIDEO
     ========================== */
 
     .video-bg{
 
       position:fixed;
+
       top:0;
       left:0;
 
@@ -130,13 +136,14 @@
     .overlay{
 
       position:fixed;
+
       inset:0;
 
       background:
       linear-gradient(
         to bottom,
         rgba(0,0,0,0.45),
-        rgba(78,0,90,0.60)
+        rgba(73,0,80,0.55)
       );
 
       z-index:-1;
@@ -152,6 +159,7 @@
       min-height:100vh;
 
       display:flex;
+
       justify-content:center;
       align-items:center;
 
@@ -166,7 +174,7 @@
 
       background:rgba(255,255,255,0.10);
 
-      border:1px solid rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.10);
 
       backdrop-filter:blur(12px);
 
@@ -179,7 +187,7 @@
       box-shadow:
       0 15px 40px rgba(0,0,0,0.5);
 
-      animation:fade 1.5s ease;
+      animation:fadeUp 1.5s ease;
 
     }
 
@@ -187,7 +195,19 @@
 
       from{
         opacity:0;
-        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+      }
+
+    }
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(25px);
       }
 
       to{
@@ -200,9 +220,8 @@
     h2{
 
       font-size:3rem;
-      margin-bottom:10px;
 
-      font-weight:700;
+      margin-bottom:10px;
 
       text-shadow:
       0 0 20px rgba(255,255,255,0.25);
@@ -211,7 +230,6 @@
 
     .subtitulo{
 
-      font-size:1rem;
       opacity:0.9;
 
       margin-bottom:25px;
@@ -235,7 +253,7 @@
       }
 
       50%{
-        transform:scale(1.18);
+        transform:scale(1.15);
       }
 
       100%{
@@ -250,13 +268,13 @@
 
     .contador-box{
 
-      background:rgba(255,255,255,0.08);
-
-      border-radius:22px;
+      margin-top:20px;
 
       padding:28px;
 
-      margin-top:25px;
+      border-radius:22px;
+
+      background:rgba(255,255,255,0.08);
 
       border:1px solid rgba(255,255,255,0.08);
 
@@ -265,13 +283,15 @@
     #contador{
 
       font-size:1.5rem;
+
       line-height:1.9;
+
       font-weight:600;
 
     }
 
     /* =========================
-       TEXTO
+       MENSAGEM
     ========================== */
 
     .mensagem{
@@ -355,7 +375,7 @@
 
     <p>
       Algumas pessoas aparecem na nossa vida
-      e mudam tudo sem perceber.
+      e conseguem transformar tudo.
       <br><br>
       Toque abaixo e entre no nosso novo mundo ✨
     </p>
@@ -367,7 +387,7 @@
   </div>
 
   <!-- =========================
-       VÍDEO
+       VIDEO
   ========================== -->
 
   <video class="video-bg" autoplay muted loop playsinline id="bgVideo">
@@ -375,6 +395,16 @@
     <source src="helipa.mp4" type="video/mp4">
 
   </video>
+
+  <!-- =========================
+       ÁUDIO
+  ========================== -->
+
+  <audio id="music" loop>
+
+    <source src="musica.mp3" type="audio/mpeg">
+
+  </audio>
 
   <div class="overlay"></div>
 
@@ -425,7 +455,7 @@
         <p>
           Cada segundo contigo vira memória.
           Cada conversa vira conforto.
-          Cada olhar teu vira meu lugar favorito. ❤️
+          Cada olhar teu vira meu lugar favorito ❤️
         </p>
 
         <p class="destaque">
@@ -440,7 +470,7 @@
         <p>
           E se algum dia alguém me perguntar
           o que é amor,
-          eu provavelmente vou mostrar você. ✨
+          eu provavelmente vou mostrar você ✨
         </p>
 
       </div>
@@ -459,13 +489,14 @@
 
   <script>
 
-    // =========================
-    // VÍDEO
-    // =========================
+    const video =
+    document.getElementById('bgVideo');
 
-    const video = document.getElementById('bgVideo');
+    const music =
+    document.getElementById('music');
 
-    // começa no segundo 1
+    // começa vídeo no segundo 1
+
     video.addEventListener('loadedmetadata', () => {
 
       video.currentTime = 1;
@@ -473,16 +504,28 @@
     });
 
     // botão entrar
-    document.getElementById('enterBtn').addEventListener('click', () => {
 
-      // libera som
-      video.muted = false;
+    document.getElementById('enterBtn')
+    .addEventListener('click', async () => {
 
-      // garante reprodução
-      video.play();
+      try{
+
+        // inicia vídeo
+        await video.play();
+
+        // inicia música
+        await music.play();
+
+      } catch(e){
+
+        console.log(e);
+
+      }
 
       // remove intro
-      document.getElementById('intro').style.display = 'none';
+
+      document.getElementById('intro')
+      .style.display = 'none';
 
     });
 
