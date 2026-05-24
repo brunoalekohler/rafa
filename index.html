@@ -20,8 +20,92 @@
     body{
       font-family:'Poppins', sans-serif;
       overflow-x:hidden;
-      color:white;
       background:black;
+      color:white;
+    }
+
+    /* =========================
+       TELA DE ENTRADA
+    ========================== */
+
+    #intro{
+
+      position:fixed;
+      inset:0;
+
+      background:
+      linear-gradient(
+        135deg,
+        #2d0036,
+        #000
+      );
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+
+      z-index:9999;
+
+      text-align:center;
+      padding:20px;
+
+    }
+
+    #intro h1{
+
+      font-size:3rem;
+      margin-bottom:20px;
+
+      text-shadow:
+      0 0 20px rgba(255,255,255,0.3);
+
+      animation:fade 1.2s ease;
+
+    }
+
+    #intro p{
+
+      max-width:500px;
+      line-height:1.8;
+      opacity:0.9;
+      margin-bottom:35px;
+
+      animation:fade 1.8s ease;
+
+    }
+
+    #enterBtn{
+
+      border:none;
+
+      padding:18px 45px;
+
+      border-radius:50px;
+
+      font-size:1.1rem;
+
+      cursor:pointer;
+
+      background:white;
+
+      color:#5e006d;
+
+      font-weight:700;
+
+      transition:0.3s;
+
+      box-shadow:
+      0 10px 30px rgba(255,255,255,0.2);
+
+      animation:fade 2.2s ease;
+
+    }
+
+    #enterBtn:hover{
+
+      transform:scale(1.06);
+
     }
 
     /* =========================
@@ -29,25 +113,34 @@
     ========================== */
 
     .video-bg{
+
       position:fixed;
       top:0;
       left:0;
+
       width:100%;
       height:100%;
+
       object-fit:cover;
+
       z-index:-2;
+
     }
 
     .overlay{
+
       position:fixed;
       inset:0;
+
       background:
       linear-gradient(
         to bottom,
         rgba(0,0,0,0.45),
-        rgba(88,0,110,0.55)
+        rgba(78,0,90,0.60)
       );
+
       z-index:-1;
+
     }
 
     /* =========================
@@ -55,11 +148,15 @@
     ========================== */
 
     .container{
+
       min-height:100vh;
+
       display:flex;
       justify-content:center;
       align-items:center;
+
       padding:25px;
+
     }
 
     .card{
@@ -82,7 +179,8 @@
       box-shadow:
       0 15px 40px rgba(0,0,0,0.5);
 
-      animation:fade 1.4s ease;
+      animation:fade 1.5s ease;
+
     }
 
     @keyframes fade{
@@ -99,25 +197,35 @@
 
     }
 
-    h1{
+    h2{
+
       font-size:3rem;
       margin-bottom:10px;
+
       font-weight:700;
 
       text-shadow:
       0 0 20px rgba(255,255,255,0.25);
+
     }
 
     .subtitulo{
+
       font-size:1rem;
       opacity:0.9;
+
       margin-bottom:25px;
+
     }
 
     .heart{
+
       font-size:2rem;
+
       margin-bottom:20px;
+
       animation:pulse 1.8s infinite;
+
     }
 
     @keyframes pulse{
@@ -151,12 +259,15 @@
       margin-top:25px;
 
       border:1px solid rgba(255,255,255,0.08);
+
     }
 
     #contador{
+
       font-size:1.5rem;
       line-height:1.9;
       font-weight:600;
+
     }
 
     /* =========================
@@ -164,52 +275,40 @@
     ========================== */
 
     .mensagem{
+
       margin-top:35px;
+
       line-height:1.9;
+
       font-size:1.08rem;
+
       color:#f5f5f5;
+
     }
 
     .mensagem p{
+
       margin-bottom:18px;
+
     }
 
     .destaque{
+
       color:#ffd2f5;
+
       font-size:1.15rem;
+
       font-weight:600;
+
     }
 
     footer{
+
       margin-top:35px;
+
       font-size:0.9rem;
+
       opacity:0.8;
-    }
-
-    /* =========================
-       BOTÃO DE ÁUDIO
-    ========================== */
-
-    .audio-msg{
-      margin-top:18px;
-      font-size:0.95rem;
-      opacity:0.9;
-      animation:piscar 1.5s infinite;
-    }
-
-    @keyframes piscar{
-
-      0%{
-        opacity:0.4;
-      }
-
-      50%{
-        opacity:1;
-      }
-
-      100%{
-        opacity:0.4;
-      }
 
     }
 
@@ -219,8 +318,12 @@
 
     @media(max-width:700px){
 
-      h1{
+      #intro h1{
         font-size:2.2rem;
+      }
+
+      h2{
+        font-size:2.1rem;
       }
 
       #contador{
@@ -243,10 +346,31 @@
 <body>
 
   <!-- =========================
-       VÍDEO DE FUNDO
+       INTRO
   ========================== -->
 
-  <video class="video-bg" autoplay loop playsinline id="bgVideo">
+  <div id="intro">
+
+    <h1>Bruno & Rafaelly ❤️</h1>
+
+    <p>
+      Algumas pessoas aparecem na nossa vida
+      e mudam tudo sem perceber.
+      <br><br>
+      Toque abaixo e entre no nosso novo mundo ✨
+    </p>
+
+    <button id="enterBtn">
+      Entrar ❤️
+    </button>
+
+  </div>
+
+  <!-- =========================
+       VÍDEO
+  ========================== -->
+
+  <video class="video-bg" autoplay muted loop playsinline id="bgVideo">
 
     <source src="helipa.mp4" type="video/mp4">
 
@@ -262,7 +386,7 @@
 
     <div class="card">
 
-      <h1>Bruno & Rafaelly ❤️</h1>
+      <h2>Bruno & Rafaelly ❤️</h2>
 
       <div class="subtitulo">
         Desde 14/05/2026 vivendo nosso novo mundo ✨
@@ -278,10 +402,6 @@
 
         <div id="contador">
           Carregando nosso tempo juntos...
-        </div>
-
-        <div class="audio-msg">
-          🔊 Toque na tela para ouvir a música
         </div>
 
       </div>
@@ -352,14 +472,19 @@
 
     });
 
-    // libera áudio ao tocar na tela
-    document.body.addEventListener('click', () => {
+    // botão entrar
+    document.getElementById('enterBtn').addEventListener('click', () => {
 
+      // libera som
       video.muted = false;
 
+      // garante reprodução
       video.play();
 
-    }, { once:true });
+      // remove intro
+      document.getElementById('intro').style.display = 'none';
+
+    });
 
     // =========================
     // CONTADOR
@@ -367,11 +492,14 @@
 
     function atualizarContador(){
 
-      const inicio = new Date('2026-05-14T00:00:00');
+      const inicio =
+      new Date('2026-05-14T00:00:00');
 
-      const agora = new Date();
+      const agora =
+      new Date();
 
-      const diferenca = agora - inicio;
+      const diferenca =
+      agora - inicio;
 
       const segundos =
       Math.floor(diferenca / 1000) % 60;
